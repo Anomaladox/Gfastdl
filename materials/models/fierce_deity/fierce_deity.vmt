@@ -1,0 +1,106 @@
+"VertexLitGeneric"
+{
+	//Taken from swords.vmt
+	"$model" 1
+	"$envmapsaturation" "0.2"
+	"$envmapcontrast" "0.5"
+	$FORCEPHONG 1
+	"$phongalbedotint" "1"
+
+	$CHARGEPASSENABLED		1
+	$CHARGENOISETEXTURE		"Engine/noise-blur-256x256"
+	//$CHARGEAMOUNT 0.3
+	$CHARGEFRESNELPULSEENABLED 1
+	
+	$CHARGESPECULARBOOST		"1"
+	$CHARGEGLOWBOOST			"1"
+	$CHARGEPULSESPEED			"8"
+	$CHARGEDARKENMAXINNER		"0.8"
+	$CHARGEDARKENMAXOUTER		"1"
+	
+	$CHARGENOISEAMOUNT			"0.75"
+	$CHARGENOISEBASESCALE		"0.1"
+	$CHARGENOISEFLOWSCALE		"0.005"
+	$CHARGENOISEFLOWSPEED		"25.0"
+	
+	$CHARGEFRESNELPOWERMIN		"0.1"
+	$CHARGEFRESNELPOWERMAX		"4"
+	$CHARGEFRESNELAMOUNTMIN		"0.4"
+	$CHARGEFRESNELAMOUNTMAX		"2"
+	$CHARGEFRESNELNOISESPEED	"4" //"20"
+	$CHARGEFRESNELNOISESCALE	"30" //0.1
+	$CHARGEFRESNELNOISEDISTANCE	"60"
+	
+	$CHARGEMODULATEBYFRESNEL	1
+
+	//"$CHARGETEXTURE"
+	//"$CHARGENORMALTEXTURE"
+	
+	$CHARGEAXISFWD				"[1 0 0]"
+	$CHARGEAXISLEFT				"[0 0 1]"
+	$CHARGEAXISUP				"[0 -1 0]"
+	//End swords.vmt
+
+	"$basetexture"  "models/fierce_deity/fierce_deity"
+	"$bumpmap"	"models/fierce_deity/fierce_deity_normal"
+
+	"$envmap"	"env_cubemap"
+	"$envmaptint" "[0 .5 .5]"
+	//"$normalmapalphaenvmapmask" "1"
+	//"$basealphaenvmapmask" 1 	
+
+	"$phong" "1"
+	"$phongfresnelranges" "[0.5 1 1]"
+	"$phongexponent" "15"
+	"$phongboost" "100"
+	"$phongtint" "[.3 .5 .5]"
+	"$phongexponenttexture" "Models/fierce_deity/fierce_deity_exponent"
+	"$phongwarptexture" "models/shared/phongwarp_metallic1"
+
+	"$rimlight"               "1"
+	"$rimlightexponent"       "1"
+	"$rimlightboost"          10
+
+	"$selfillum" "1"
+	"$selfillumtint[0]" "[0 1 1]"
+	"$selfillumtint[1]" "[0 1 0]"
+	"$selfillumtint[2]" "[0 0 .5]"
+
+
+		"Proxies"
+		{
+			"Sine" 
+			{
+				"resultVar"	"$selfillumtint[0]"
+				"sineperiod"	"10"
+				"sinemin"		"0"
+				"sinemax"	"2"
+			}
+			"Sine" 
+			{
+				"resultVar"	"$selfillumtint[1]"
+				"sineperiod"	"5"
+				"sinemin"		"0.6"
+				"sinemax"	"1.2"
+			}
+			"Sine" 
+			{
+				"resultVar"	"$selfillumtint[2]"
+				"sineperiod"	"5"
+				"sinemin"		"0.3"
+				"sinemax"	"0.9"
+	
+			}
+			"PlayerChargeEffect"
+			{
+				"resultvar" "$chargeamount"
+			}
+			"PlayerChargeColor"
+			{
+				"resultvar" "$chargeColor"
+			}
+
+		}
+
+}
+
