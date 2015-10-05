@@ -1,0 +1,6 @@
+"UnlitGeneric"
+{
+	"$basetexture" "lesser_dog/npc_lesser_dog_killicon"
+	"$translucent" 1
+	"$vertexalpha" 1
+}
